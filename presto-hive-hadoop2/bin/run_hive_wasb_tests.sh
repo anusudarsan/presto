@@ -22,7 +22,7 @@ exec_in_hadoop_master_container sed -i \
 # create test table
 table_path="wasb://${WASB_CONTAINER}@${WASB_ACCOUNT}.blob.core.windows.net/presto_test_external_fs_v2/"
 exec_in_hadoop_master_container hadoop fs -mkdir -p "${table_path}"
-exec_in_hadoop_master_container hadoop fs -copyFromLocal -f /tmp/test_table.csv{,.gz,.bz2,.lz4} "${table_path}"
+exec_in_hadoop_master_container hadoop fs -copyFromLocal -f /docker/files/test_table.csv{,.gz,.bz2,.lz4} "${table_path}"
 exec_in_hadoop_master_container /usr/bin/hive -e "CREATE EXTERNAL TABLE presto_test_external_fs(t_bigint bigint) LOCATION '${table_path}'"
 
 table_path="wasb://${WASB_CONTAINER}@${WASB_ACCOUNT}.blob.core.windows.net/presto_test_external_fs_with_header/"
