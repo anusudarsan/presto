@@ -52,9 +52,9 @@ public class TestHiveFileSystemAbfs
             "hive.hadoop2.metastoreHost",
             "hive.hadoop2.metastorePort",
             "hive.hadoop2.databaseName",
-            "hive.hadoop2.wasb-container",
-            "hive.hadoop2.wasb-account",
-            "hive.hadoop2.wasb-access-key"
+            "hive.hadoop2.abfs-container",
+            "hive.hadoop2.abfs-account",
+            "hive.hadoop2.abfs-access-key"
     })
     @BeforeClass
     public void setup(String host, int port, String databaseName, String container, String account, String accessKey)

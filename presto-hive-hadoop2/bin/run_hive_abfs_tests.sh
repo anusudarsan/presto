@@ -61,9 +61,9 @@ set +e
     -Dhive.hadoop2.metastoreHost=localhost \
     -Dhive.hadoop2.metastorePort=9083 \
     -Dhive.hadoop2.databaseName=default \
-    -Dhive.hadoop2.wasb-container=${ABFS_CONTAINER} \
-    -Dhive.hadoop2.wasb-account=${ABFS_ACCOUNT} \
-    -Dhive.hadoop2.wasb-access-key=${ABFS_ACCESS_KEY}
+    -Dhive.hadoop2.abfs-container=${ABFS_CONTAINER} \
+    -Dhive.hadoop2.abfs-account=${ABFS_ACCOUNT} \
+    -Dhive.hadoop2.abfs-access-key=${ABFS_ACCESS_KEY}
 EXIT_CODE=$?
 set -e
 popd
