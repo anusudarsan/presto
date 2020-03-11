@@ -18,6 +18,10 @@ exec_in_hadoop_master_container sed -i \
     -e "s|%ABFS_ACCOUNT%|${ABFS_ACCOUNT}|g" \
     /etc/hadoop/conf/core-site.xml
 
+# restart hive-server2 to apply S3 changes in core-site.xml
+docker exec "$(hadoop_master_container)" supervisorctl restart hive-server2
+retry check_hadoop
+
 # create test table
 table_path="abfs://${ABFS_CONTAINER}@${ABFS_ACCOUNT}.dfs.core.windows.net/presto_test_external_fs_v2/"
 exec_in_hadoop_master_container hadoop fs -mkdir -p "${table_path}"
